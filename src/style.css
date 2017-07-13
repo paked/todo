@@ -1,2 +1,46 @@
 body {
+    font-family: 'Open Sans'; /*, 'Helvetica'*/
+}
+
+.page {
+    margin-left: 20%;
+    width: 60%;
+}
+
+.input {
+    color: #575757;
+    box-sizing: 'border-box';
+    display: 'block';
+    padding-top: 7px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    border-radius: 3px;
+    border: 1px solid #c0c0c0;
+}
+
+.button {
+    color: #575757;
+    box-sizing: 'border-box';
+    display: 'block';
+    padding-top: 7px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    border-radius: 3px;
+    border: 1px solid #c0c0c0;
+    background-color: white;
+
+    margin-left: 0.3rem;
+}
+
+.button:hover {
+    background-color: lightgrey;
+}
+
+@media only screen and (max-device-width: 768px) {
+    .page-bounds {
+        margin-left: 5%;
+        width: 90%;
+    }
 }

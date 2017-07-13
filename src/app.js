@@ -34,6 +34,7 @@ class App {
 
     if (!this.validTodo(newTodoText)) {
       alert("That's not a valid todo! Make sure you actually wrote a thing!")
+
       return
     }
 
@@ -93,6 +94,8 @@ class App {
     let editButton = document.createElement("button")
     editButton.innerText = "Edit"
     editButton.onclick = this.createTodoEditHandler(i)
+
+    editButton.className = doneButton.className = "button"
 
     let todoElem = document.createElement("span")
     todoElem.appendChild(document.createTextNode(todo.text))

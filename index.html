@@ -4,11 +4,14 @@
     <head>
         <title>Todoodle!</title>
 
+        <link async="" defer="" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,300,300italic,400italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="vendor/normalize.css" />
         <link rel="stylesheet" href="src/style.css" />
     </head>
 
-    <body onload="init()">
-        <h1>Todo</h1>
+    <body class="page" onload="init()">
+        <h1>Todoodle</h1>
 
         <input id="todo-mode-all" type="radio" name="mode" value="0" onclick="window.app.renderTodos()" checked>All todos</input>
         <input id="todo-mode-todo" type="radio" name="mode" value="1" onclick="window.app.renderTodos()">Not complete todos</input>
@@ -18,9 +21,9 @@
         </ul>
 
         <label for="todo">New todo: </label>
-        <input id="todo-text" name="todo" type="text" />
+        <input id="todo-text" class="input" name="todo" type="text" />
 
-        <button onclick="window.app.addTodo()">Add todo</button>
+        <button onclick="window.app.addTodo()" class="button">Add todo</button>
 
         <script src="src/app.js"></script>
         <script src="src/main.js"></script>
