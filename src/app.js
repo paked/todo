@@ -2,7 +2,6 @@ const TODO_SHOW_ALL = "todo-mode-all"
 const TODO_SHOW_TODO= "todo-mode-todo"
 const TODO_SHOW_DONE = "todo-mode-done"
 
-
 class App {
   constructor() {
     this.todoTextBox = document.getElementById("todo-text")
@@ -64,10 +63,13 @@ class App {
       switch(this.getRenderMode()) {
       case TODO_SHOW_ALL:
           shouldRender = true
+          break
       case TODO_SHOW_TODO:
           shouldRender = !todo.done
+          break
       case TODO_SHOW_DONE:
           shouldRender = todo.done
+          break
       }
 
       if (shouldRender) {
@@ -77,10 +79,15 @@ class App {
   }
 
   renderTodo(i, todo) {
-    // Delete button
-    let deleteButton = document.createElement("button")
-    deleteButton.innerText = "Mark as done"
-    deleteButton.onclick = this.createTodoDeleteHandler(i)
+    // Done button
+    let doneButton = document.createElement("button")
+    doneButton.innerText = "Mark as done"
+
+    if (todo.done) {
+      doneButton.innerText = "Mark as not done"
+    }
+
+    doneButton.onclick = this.createTodoDoneHandler(i)
 
     // Edit button
     let editButton = document.createElement("button")
@@ -89,7 +96,7 @@ class App {
 
     let todoElem = document.createElement("span")
     todoElem.appendChild(document.createTextNode(todo.text))
-    todoElem.appendChild(deleteButton)
+    todoElem.appendChild(doneButton)
     todoElem.appendChild(editButton)
 
     // Assemble the monstrosity
@@ -99,11 +106,11 @@ class App {
     this.todoList.appendChild(li)
   }
 
-  createTodoDeleteHandler(i) {
+  createTodoDoneHandler(i) {
     return () => {
-      console.log(`Removing todo: ${i}`)
+      let todo = window.data.todos[i]
 
-      window.data.todos.splice(i, 1)
+      todo.done = !todo.done
 
       this.renderTodos()
     }
