@@ -1,0 +1,28 @@
+<!doctype>
+
+<html>
+    <head>
+        <title>Todoodle!</title>
+
+        <link rel="stylesheet" href="src/style.css" />
+    </head>
+
+    <body onload="init()">
+        <h1>Todo</h1>
+
+        <input id="todo-mode-all" type="radio" name="mode" value="0" onclick="window.app.renderTodos()" checked>All todos</input>
+        <input id="todo-mode-todo" type="radio" name="mode" value="1" onclick="window.app.renderTodos()">Not complete todos</input>
+        <input id="todo-mode-done" type="radio" name="mode" value="2" onclick="window.app.renderTodos()">Completed todos</input>
+
+        <ul id="todo-list">
+        </ul>
+
+        <label for="todo">New todo: </label>
+        <input id="todo-text" name="todo" type="text" />
+
+        <button onclick="window.app.addTodo()">Add todo</button>
+
+        <script src="src/app.js"></script>
+        <script src="src/main.js"></script>
+    </body>
+</head>
